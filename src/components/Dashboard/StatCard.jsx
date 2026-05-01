@@ -1,21 +1,26 @@
-﻿import React from 'react';
-
-const colorClasses = {
-  blue: 'bg-blue-100 text-blue-600',
-  green: 'bg-green-100 text-green-600',
-  yellow: 'bg-yellow-100 text-yellow-600',
-  orange: 'bg-orange-100 text-orange-600',
-  red: 'bg-red-100 text-red-600',
-};
+import React from 'react';
 
 const StatCard = ({ title, value, icon: Icon, color }) => {
+  const colors = {
+    blue: 'from-blue-500 to-blue-600',
+    green: 'from-green-500 to-green-600',
+    yellow: 'from-yellow-500 to-yellow-600',
+    orange: 'from-orange-500 to-orange-600',
+    red: 'from-red-500 to-red-600',
+    purple: 'from-purple-500 to-purple-600',
+  };
+
   return (
-    <div className="bg-white rounded-lg shadow-md p-6">
-      <div className={`p-3 rounded-lg inline-block ${colorClasses[color]}`}>
-        <Icon size={24} />
+    <div className="stat-card group">
+      <div className="flex items-center justify-between">
+        <div>
+          <p className="text-gray-500 text-sm mb-1">{title}</p>
+          <p className="text-2xl font-bold text-gray-800">{value}</p>
+        </div>
+        <div className={`w-10 h-10 bg-gradient-to-r ${colors[color]} rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform`}>
+          <Icon className="text-white" size={18} />
+        </div>
       </div>
-      <h3 className="text-2xl font-bold text-gray-800 mt-4">{value}</h3>
-      <p className="text-gray-600 text-sm">{title}</p>
     </div>
   );
 };
