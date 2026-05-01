@@ -12,21 +12,19 @@ import TaskList from './components/Tasks/TaskList';
 
 function App() {
   return (
-    <Router>
-      <AuthProvider>
-        <Toaster position="top-right" />
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/" element={<PrivateRoute><Layout /></PrivateRoute>}>
-            <Route index element={<Navigate to="/dashboard" />} />
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="projects" element={<ProjectList />} />
-            <Route path="tasks" element={<TaskList />} />
-          </Route>
-        </Routes>
-      </AuthProvider>
-    </Router>
+    <AuthProvider>
+      <Toaster position="top-right" />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/" element={<PrivateRoute><Layout /></PrivateRoute>}>
+          <Route index element={<Navigate to="/dashboard" />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="projects" element={<ProjectList />} />
+          <Route path="tasks" element={<TaskList />} />
+        </Route>
+      </Routes>
+    </AuthProvider>
   );
 }
 
